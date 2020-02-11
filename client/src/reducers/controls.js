@@ -4,7 +4,7 @@ import {
   DATA_REQUESTED,
   SET_DISPLAY_MODE,
 } from "actions/controls";
-import { DARK } from "common/constants/theme";
+import { DARK } from "@common/constants/theme";
 
 const initialData = {
   data: null,

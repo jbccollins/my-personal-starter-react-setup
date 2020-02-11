@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DemoComponent from "components/DemoComponent";
+import DemoComponent from "@components/DemoComponent";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { setDisplayMode, fetchData } from "actions/controls";
+import { setDisplayMode, fetchData } from "@actions/controls";
 import { setData } from "utilities/api";
-import { DARK, LIGHT } from "common/constants/theme";
+import { DARK, LIGHT } from "@common/constants/theme";
 import "./DemoContainer.scss";
 
 class DemoContainer extends React.Component {
