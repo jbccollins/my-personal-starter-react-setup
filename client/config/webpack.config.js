@@ -26,7 +26,6 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 /* MODIFIED BY ME */
 const resolveTsconfigPathsToAlias = require('./resolve-tsconfig-path-to-webpack-alias');
-const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
 /* END MODIFIED BY ME */
 
 const postcssNormalize = require('postcss-normalize');
@@ -306,17 +305,7 @@ module.exports = function(webpackEnv) {
         ...(resolveTsconfigPathsToAlias({
           tsconfigPath: '../tsconfig.json', // Using custom path
           __dirname
-          //webpackConfigBasePath: '../', // Using custom path
         })),
-        // reducers: path.resolve(__dirname, "../src/reducers/"),
-        // actions: path.resolve(__dirname, "../src/actions/"),
-        // components: path.resolve(__dirname, "../src/components/"),
-        // containers: path.resolve(__dirname, "../src/containers/"),
-        // assets: path.resolve(__dirname, "../src/assets/"),
-        // constants: path.resolve(__dirname, "../src/constants/"),
-        // utilities: path.resolve(__dirname, "../src/utilities/"),
-        // // Outside of src
-        // common: path.resolve(__dirname, "../../common/"),
         /* END MODIFIED BY ME */
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
@@ -335,21 +324,7 @@ module.exports = function(webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         /* MODIFIED BY ME */
-        //new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-        //new DirectoryNamedWebpackPlugin(),
-        
-        
-        new DirectoryNamedWebpackPlugin({
-          honorIndex: false,
-
-          // define where the imported files will be resolving by DirectoryNamedWebpackPlugin.
-          // it can be string/regex or Array of string/regex.
-          include: [
-            path.resolve(__dirname, "../src/components/"),
-            path.resolve(__dirname, "../src/containers/")
-          ]
-        }),
-        
+        //new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),        
         /* END MODIFIED BY ME */
       ],
     },

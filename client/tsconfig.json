@@ -21,14 +21,12 @@
     "noEmit": true,
     "jsx": "react",
     "paths": {
-      "@root/*": ["../src/*"],
       "@components/*": ["../src/components/*"],
       "@containers/*": ["../src/containers/*"],
-      "@reducers/*": ["../src/reducers/*"],
-      "@actions/*": ["../src/actions/*"],
       "@assets/*": ["../src/assets/*"],
       "@constants/*": ["../src/constants/*"],
       "@utilities/*": ["../src/utilities/*"],
+      "@redux/*": ["../src/reduxTools/*"],
       "@common/*": ["../../common"]
     }
   },
