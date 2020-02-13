@@ -27,6 +27,7 @@
       "@constants/*": ["../src/constants/*"],
       "@utilities/*": ["../src/utilities/*"],
       "@redux/*": ["../src/reduxTools/*"],
+      "@auth/*": ["../src/auth/*"],
       "@common/*": ["../../common"]
     }
   },

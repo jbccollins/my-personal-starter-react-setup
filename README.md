@@ -4,8 +4,8 @@ I use the same basic set of stuff in almost all my React projects. So here's my 
 
 ### Notable Dependencies/Features
 * [Redux](https://redux.js.org/) (Application state management)
-* [react-router](https://github.com/ReactTraining/react-router) (Single page app with url management)
-* [DirectoryNamedWebpackPlugin](https://github.com/shaketbaby/directory-named-webpack-plugin) (A personal pet peeve of mine is using index.js for every component)
+* [connected-react-router](https://github.com/supasate/connected-react-router) (Single page app with url management)
+* ~~[DirectoryNamedWebpackPlugin](https://github.com/shaketbaby/directory-named-webpack-plugin) (A personal pet peeve of mine is using index.js for every component)~~ (Working on it)
 * [babel-preset-react-app](https://www.npmjs.com/package/babel-preset-react-app) (Enable all those juicy ES6 features)
 * Concurrent Server and Client in the same project with no configuration bullshit
 * Hot reloading

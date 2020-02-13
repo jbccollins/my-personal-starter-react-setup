@@ -21,9 +21,9 @@ const UnconnectedLogin: React.FC<Props> = ({ login, username }) => {
     login(inputName);
   };
 
-  if (username !== null) {
-    return <Redirect to="/shop" />;
-  }
+  // if (username !== null) {
+  //   return <Redirect to="/shop" />;
+  // }
 
   return (
     <Container>
