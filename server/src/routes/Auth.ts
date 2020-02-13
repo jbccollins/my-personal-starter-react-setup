@@ -9,7 +9,7 @@ import {
     logger,
     jwtCookieProps,
     JwtService,
-} from '@shared';
+} from '@common';
 
 
 const router = Router();

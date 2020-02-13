@@ -12,7 +12,7 @@
   })
 
 */
-import { executeQuery } from './common';
+import { executeQuery } from './shared';
 
 const selectData = async AnotherColumn => {
   const sql = `SELECT "SomeColumn" FROM some_table WHERE "AnotherColumn" = $1`;

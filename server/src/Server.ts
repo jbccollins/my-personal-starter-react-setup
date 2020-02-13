@@ -5,8 +5,9 @@ import path from 'path';
 import BaseRouter from './routes';
 
 import { Request, Response } from 'express';
-import { jwtCookieProps } from '@shared';
-
+import { jwtCookieProps } from '@common';
+import { IExampleData } from '@shared/types/ExampleData';
+const derp: IExampleData = { id: "asdf" };
 
 // Init express
 const app = express();
@@ -52,6 +53,7 @@ app.get('/anotherpage', (req: Request, res: Response) => {
 });
 
 app.get('/login', (req: Request, res: Response) => {
+    console.log(derp);
     res.sendFile('login.html', {root: viewsDir});
 });
 

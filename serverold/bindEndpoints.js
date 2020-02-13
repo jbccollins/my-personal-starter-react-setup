@@ -7,7 +7,7 @@ import bodyParser from 'body-parser';
 import {
   API_GET_DATA,
   API_SET_DATA,
-} from './common/constants/urls';
+} from './shared/constants/urls';
 
 const useBodyParser = app => {
   app.use(bodyParser.urlencoded({

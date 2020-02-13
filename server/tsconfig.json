@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "module": "commonjs",
-    "outDir": "dist",
+    "outDir": "../dist/server",
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
@@ -19,11 +19,14 @@
       "@entities": [
         "src/entities"
       ],
-      "@shared": [
-        "src/shared"
+      "@common": [
+        "src/common"
       ],
       "@server": [
         "src/Server"
+      ],
+      "@shared/*": [
+        "../shared/*"
       ]
     },
     "types": [
@@ -33,6 +36,7 @@
       "node_modules/@types"
     ]
   },
+  "references": [{ "path": "../shared" }],
   "include": [
     "src/**/*.ts",
     "spec/**/*.ts"

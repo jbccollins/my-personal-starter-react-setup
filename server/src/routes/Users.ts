@@ -2,10 +2,10 @@ import { Request, Response, Router } from 'express';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
 import { ParamsDictionary } from 'express-serve-static-core';
 import { UserDao } from '@daos';
-import { paramMissingError, logger, adminMW } from '@shared';
+import { paramMissingError, logger, adminMW } from '@common';
 import { UserRoles } from '@entities';
 
-// Init shared
+// Init common
 const router = Router();
 const userDao = new UserDao();
 

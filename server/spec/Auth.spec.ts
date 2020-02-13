@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 import { BAD_REQUEST, CREATED, OK, UNAUTHORIZED } from 'http-status-codes';
 import { Response, SuperTest, Test } from 'supertest';
 import { IUser, User, UserRoles } from '@entities';
-import { pErr, pwdSaltRounds, jwtCookieProps, loginFailedErr } from '@shared';
+import { pErr, pwdSaltRounds, jwtCookieProps, loginFailedErr } from '@common';
 import { UserDao } from '@daos';
 
 

@@ -4,7 +4,7 @@ import fetch from "isomorphic-fetch";
 import {
 	API_GET_DATA,
 	API_SET_DATA,
-} from "@common/constants/urls";
+} from "@shared/constants/urls";
 
 const GET_REQUEST_PARAMS = {
   method: "GET",

@@ -7,7 +7,7 @@ import { JwtService } from './JwtService';
 
 
 
-// Init shared
+// Init common
 const jwtService = new JwtService();
 
 // Strings

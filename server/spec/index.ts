@@ -2,7 +2,7 @@ import './LoadEnv';
 import find from 'find';
 import Jasmine from 'jasmine';
 import commandLineArgs from 'command-line-args';
-import { logger } from '@shared';
+import { logger } from '@common';
 
 // Setup command line options
 const options = commandLineArgs([

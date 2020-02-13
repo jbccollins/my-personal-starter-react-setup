@@ -6,7 +6,7 @@ import { Response, SuperTest, Test } from 'supertest';
 import { IUser, User } from '@entities';
 import { UserDao } from '@daos';
 import { login } from './support/LoginAgent';
-import { pErr, paramMissingError } from '@shared';
+import { pErr, paramMissingError } from '@common';
 
 
 describe('UserRouter', () => {

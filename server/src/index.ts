@@ -1,6 +1,6 @@
 import './LoadEnv'; // Must be the first import
 import app from '@server';
-import { logger } from '@shared';
+import { logger } from '@common';
 
 // Start the server
 const DEFAULT_PORT: number = 5001;

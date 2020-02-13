@@ -13,7 +13,7 @@
   "_moduleAliases": {
     "@daos": "dist/daos",
     "@entities": "dist/entities",
-    "@shared": "dist/shared",
+    "@common": "dist/common",
     "@server": "dist/Server"
   },
   "dependencies": {

@@ -6,8 +6,11 @@ import { Shop } from "./components/main/shop/Shop";
 import { Cart } from "./components/main/cart/Cart";
 import { Login } from "./components/main/auth/Login";
 import PrivateRoute from "@components/ProtectedRoute/ProtectedRoute";
+import { IExampleData } from '@shared/types/ExampleData';
 
 const App = () => {
+  const derp: IExampleData = {id: "adsf"};
+  console.log(derp);
   return (
     <Container>
       <Nav />

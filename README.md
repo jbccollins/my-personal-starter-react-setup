@@ -26,6 +26,12 @@ yarn rebuild
 yarn dev
 ```
 
+## Naming Conventions
+- top-level directory: oneof [client, server, shared]
+- src: where all code that executes when a top-level-directory is compiled
+- util: Utility files used for things like building or running scripts. Not to be used inside of src
+- helpers: Snippets used to do things inside of src
+
 ## Scripts
 #### Common
 | Script | Description |
