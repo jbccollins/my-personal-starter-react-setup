@@ -83,6 +83,9 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  /* MODIFIED BY ME */
+  shared: resolveApp('../shared'),
+  /* END MODIFIED BY ME */
 };
 
 

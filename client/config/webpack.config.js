@@ -358,7 +358,10 @@ module.exports = function(webpackEnv) {
               loader: require.resolve('eslint-loader'),
             },
           ],
-          include: paths.appSrc,
+          /* MODIFIED BY ME */
+          // Added paths.shared
+          include: [paths.appSrc, paths.shared],
+          /* END MODIFIED BY ME */
         },
         {
           // "oneOf" will traverse all following loaders until one will
@@ -380,7 +383,10 @@ module.exports = function(webpackEnv) {
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
-              include: paths.appSrc,
+              /* MODIFIED BY ME */
+              // Added paths.shared
+              include: [paths.appSrc, paths.shared],
+              /* END MODIFIED BY ME */
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve(

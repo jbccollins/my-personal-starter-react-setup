@@ -101,3 +101,9 @@ heroku config:unset NODEMODULESCACHE
 ## Acknowledgement
 
 This boilerplate for the client is built using an ejected [create-react-app](https://github.com/facebookincubator/create-react-app) so you will want to read the User Guide for more goodies.
+
+The structure for the fullstack client/server/shared is heavily inspired by [fullstack-typescript](https://github.com/gilamran/fullstack-typescript)
+
+The structure for the server and authentication scheme is heavily inspired by [express-generator-typescript](https://github.com/seanpmaxwell/express-generator-typescript/tree/master/sample-output/withAuthOpt)
+
+The authentication scheme was also influenced by [@SilentHackz](https://medium.com/@SilentHackz/simple-way-to-secure-react-apps-using-jwt-and-react-router-2b4a05d780a3)

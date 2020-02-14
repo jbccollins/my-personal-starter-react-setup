@@ -3,7 +3,7 @@
   Examples of basic database usage. A typical use case would be importing functions from this file
   into bindEndpoints.js and doing something like this:
   
-  import { selectData } from "./queries/queries";
+  import { selectData } from "./database/queries";
   ...
   app.get(API_GET_DATA, async (req, res) => {
     const { Data } = req.query;
