@@ -8,8 +8,10 @@ import { Login } from "./components/main/auth/Login";
 import PrivateRoute from "@components/ProtectedRoute/ProtectedRoute";
 import { IExampleData } from '@shared/types/ExampleData';
 import { User } from '../../shared/types/User';
+//import { add } from '../../shared/types/derp';
 
 const App = () => {
+  //add(1, 2);
   const derp: IExampleData = {id: "adsf"};
   const myUser: User = new User("James Collins", "jbccollins@gmail.com");
   console.log(derp);
