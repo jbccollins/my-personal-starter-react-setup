@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { RootState } from "@redux/store";
 import { numberOfItems } from "../../helpers/numberOfItems";
 import { connect } from "react-redux";
-import { logout } from "@redux/modules/user";
+import { logout } from "@redux/modules/session";
 // import { useTypedSelector } from '@redux/store';
 
 // const isOn = useTypedSelector(state => state.products)
 
 const mapStateToProps = (state: RootState) => ({
-  username: state.user.username,
+  username: state.session?.user.name,
   numberOfItems: numberOfItems(state)
 });
 

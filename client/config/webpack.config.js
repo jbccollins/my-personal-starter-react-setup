@@ -285,9 +285,12 @@ module.exports = function(webpackEnv) {
       // We placed these paths second because we want `node_modules` to "win"
       // if there are any conflicts. This matches Node resolution mechanism.
       // https://github.com/facebook/create-react-app/issues/253
-      modules: ['node_modules', paths.appNodeModules, paths.shared].concat(
+      /* MODIFIED BY ME */
+      // Added paths.shared
+      modules: ['node_modules', paths.appNodeModules/*, paths.shared*/].concat(
         modules.additionalModulePaths || []
       ),
+      /* END MODIFIED BY ME */
       // These are the reasonable defaults supported by the Node ecosystem.
       // We also include JSX as a common component filename extension to support
       // some tools, although we do not recommend using it, see:
@@ -360,7 +363,7 @@ module.exports = function(webpackEnv) {
           ],
           /* MODIFIED BY ME */
           // Added paths.shared
-          include: [paths.appSrc, paths.shared],
+          include: [paths.appSrc/*, paths.shared*/],
           /* END MODIFIED BY ME */
         },
         {
@@ -385,7 +388,7 @@ module.exports = function(webpackEnv) {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               /* MODIFIED BY ME */
               // Added paths.shared
-              include: [paths.appSrc, paths.shared],
+              include: [paths.appSrc/*, paths.shared*/],
               /* END MODIFIED BY ME */
               loader: require.resolve('babel-loader'),
               options: {

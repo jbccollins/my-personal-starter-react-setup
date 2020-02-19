@@ -1,3 +1,5 @@
+import { User } from "shared/types/User";
+
 type Product = {
   id: number;
   name: string;
@@ -16,4 +18,6 @@ type ProductState = {
   cart: CartItem[];
 };
 
-type UserState = { username: string | null };
+type Session = {
+  user: User;
+}

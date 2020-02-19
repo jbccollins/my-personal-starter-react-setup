@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import { userReducer } from "./modules/user";
 import { productsReducer } from "./modules/products";
+import { sessionReducer } from "./modules/session";
 import { connectRouter } from "connected-react-router";
 
 export const createRootReducer = (history: any) =>
   combineReducers({
-    user: userReducer,
     products: productsReducer,
+    session: sessionReducer,
     router: connectRouter(history)
   });

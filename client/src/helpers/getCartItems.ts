@@ -1,5 +1,6 @@
 import { RootState } from "@redux/store";
 import { createSelector } from "reselect";
+import { CartItem, Product } from "types";
 
 type CheckoutItem = CartItem & Product;
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Input, Button, Icon, Message } from "semantic-ui-react";
 import { addToCart } from "@redux/modules/products";
 import { connect } from "react-redux";
+import { Product } from "types";
 
 const mapDispatchToProps = { addToCart };
 

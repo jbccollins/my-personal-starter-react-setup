@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Image } from "semantic-ui-react";
 import { priceFormat } from "../../../helpers/priceFormat";
 import { AddForm } from "./AddForm";
+import { Product } from "types";
 
 type Props = {
   product: Product;

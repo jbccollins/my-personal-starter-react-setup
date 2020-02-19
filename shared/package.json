@@ -1,7 +1,0 @@
-{
-  "name": "shared-workspace",
-  "version": "3.0.0",
-  "private": true,
-  "description": "The shared-workspace directory for my-personal-react-starter-setup",
-  "dependencies": {}
-}

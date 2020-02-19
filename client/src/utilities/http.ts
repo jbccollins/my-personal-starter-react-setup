@@ -15,12 +15,22 @@ const getOptions = (verb: string, data?: object) => {
   return options;
 }
 
+const httpReturn = async (res: Response, parseJson: boolean) => {
+  if (parseJson) {
+    return await res.json();
+  } else {
+    return res;
+  }
+}
+
 export default {
   Get: function (path: string) {
     return fetch(path, getOptions('GET'))
   },
-  Post: function (path: string, data: object) {
-      return fetch(path, getOptions('POST', data));
+  Post: async (path: string, data: object, parseJson: boolean = true) => {
+      const res = await fetch(path, getOptions('POST', data));
+      const toReturn = await httpReturn(res, parseJson);
+      return toReturn;
   },
   Put: function (path: string, data: object) {
       return fetch(path, getOptions('PUT', data));

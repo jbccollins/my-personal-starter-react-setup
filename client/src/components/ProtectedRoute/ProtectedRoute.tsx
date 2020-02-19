@@ -1,6 +1,8 @@
 // https://medium.com/@SilentHackz/simple-way-to-secure-react-apps-using-jwt-and-react-router-2b4a05d780a3
 import React from 'react';
 import { Redirect, Route } from "react-router-dom";
+import { useTypedSelector } from '@redux/store';
+import { Session } from 'types';
 
 type Props = {
   component?: any, // TODO: type this correctly
@@ -10,9 +12,8 @@ type Props = {
 };
 
 const PrivateRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
+  const session: Session | null = useTypedSelector(state => state.session);
 
-  const session = false;
-  console.log("session", session);
   return (
     <Route
       {...rest}
@@ -22,7 +23,7 @@ const PrivateRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/login", //?ReturnTo=" + encodeURIComponent(window.location.pathname)
               state: { from: props.location }
             }}
           />

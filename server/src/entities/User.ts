@@ -14,8 +14,9 @@ export interface IUser {
     email: string;
     pwdHash: string;
     role: TUserRoles;
+    iat?: number;
+    exp?: number;
 }
-
 
 export class User implements IUser {
 
@@ -24,7 +25,8 @@ export class User implements IUser {
     public email: string;
     public role: TUserRoles;
     public pwdHash: string;
-
+    public iat?: number;
+    public exp?: number;
 
     constructor(
         nameOrUser?: string | IUser,

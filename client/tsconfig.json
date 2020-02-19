@@ -28,13 +28,12 @@
       "@utilities/*": ["../src/utilities/*"],
       "@redux/*": ["../src/reduxTools/*"],
       "@auth/*": ["../src/auth/*"],
-      "@shared/*": ["../../shared/*"],
+      "@shared/*": ["../src/shared/*"],
+      "@types/*": ["../src/types/*"],
       "@root/*": ["../src/*"]
     }
   },
-  "references": [{ "path": "../shared" }],
   "include": [
-    "src",
-    "../shared"
+    "src"
   ]
 }

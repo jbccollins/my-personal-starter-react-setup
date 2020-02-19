@@ -2,6 +2,7 @@ import { typedAction } from "@redux/helpers";
 import { Dispatch, AnyAction } from "redux";
 import { RootState } from "@redux/store";
 import { sampleProducts } from "../../data/sampleProducts";
+import { ProductState, Product } from "types";
 
 const initialState: ProductState = { products: [], loading: false, cart: [] };
 
