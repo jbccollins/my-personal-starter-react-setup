@@ -1,21 +1,30 @@
 import React from "react";
-import { Nav } from "@components/header/Nav";
 import { Container } from "semantic-ui-react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { Shop } from "@components/main/shop/Shop";
-import { Cart } from "@components/main/cart/Cart";
-import Login from "@components/main/auth/Login";
+import Login from "@components/Views/Login/Login";
 import ProtectedRoute from "@components/ProtectedRoute/ProtectedRoute";
+import Dashboard from "@components/Views/Dashboard/Dashboard";
+import SignUp from "@components/Views/SignUp/SignUp";
+import View404 from "@components/Views/404/404";
+import UserList from "@components/Views/UserList/UserList";
+import {
+  LOGIN,
+  SIGNUP,
+  DASHBOARD,
+  BASE_URL,
+  USERS
+} from "@shared/constants/urls";
 
 const App = () => {
   return (
     <Container>
-      <Nav />
       <Switch>
-        <ProtectedRoute path="/" exact render={() => <Redirect to={"/login"} />}/>
-        <ProtectedRoute path="/shop" component={Shop} />
-        <ProtectedRoute path="/cart" component={Cart} />
-        <Route path="/login" component={Login} />
+        <ProtectedRoute path={BASE_URL} exact render={() => <Redirect to={LOGIN} />}/>
+        <ProtectedRoute path={DASHBOARD} component={Dashboard} />
+        <ProtectedRoute path={USERS} component={UserList} />
+        <Route path={LOGIN} component={Login} />
+        <Route path={SIGNUP} component={SignUp} />
+        <Route component={View404} />
       </Switch>
     </Container>
   );

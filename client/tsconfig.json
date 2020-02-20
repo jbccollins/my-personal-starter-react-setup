@@ -25,9 +25,8 @@
       "@containers/*": ["../src/containers/*"],
       "@assets/*": ["../src/assets/*"],
       "@constants/*": ["../src/constants/*"],
-      "@utilities/*": ["../src/utilities/*"],
+      "@util/*": ["../src/util/*"],
       "@redux/*": ["../src/reduxTools/*"],
-      "@auth/*": ["../src/auth/*"],
       "@shared/*": ["../src/shared/*"],
       "@types/*": ["../src/types/*"],
       "@root/*": ["../src/*"]

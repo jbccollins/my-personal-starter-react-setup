@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { SuperTest, Test } from 'supertest';
 import { UserDao } from '@daos';
-import { User, UserRoles } from '@entities';
+import { User, UserRoles } from '@shared/types/User';
 import { pwdSaltRounds } from '@common';
 
 
@@ -14,7 +14,7 @@ export const login = (beforeAgent: SuperTest<Test>, done: any) => {
     // Setup dummy data
     const role = UserRoles.Admin;
     const pwdHash = bcrypt.hashSync(creds.password, pwdSaltRounds);
-    const loginUser = new User('john smith', creds.email, role, pwdHash);
+    const loginUser = new User("John", "Smith", creds.email, role, pwdHash);
     spyOn(UserDao.prototype, 'getOne').and.returnValue(Promise.resolve(loginUser));
     // Call Login API
     beforeAgent

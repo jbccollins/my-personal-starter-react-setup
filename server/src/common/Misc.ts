@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { UNAUTHORIZED } from 'http-status-codes';
-import { UserRoles } from '@entities';
+import { UserRoles } from '@shared/types/User';
 import { logger } from './Logger';
 import { jwtCookieProps } from './cookies';
 import { JwtService } from './JwtService';
@@ -13,6 +13,7 @@ const jwtService = new JwtService();
 // Strings
 export const paramMissingError = 'One or more of the required parameters was missing.';
 export const loginFailedErr = 'Login failed';
+export const userAlreadyExistsError = "User with this email already exists";
 
 // Numbers
 export const pwdSaltRounds = 12;

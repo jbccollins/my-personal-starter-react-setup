@@ -1,1 +1,52 @@
-{"users":[{"name":"Sean Maxwell","email":"sean.maxwell@gmail.com","pwdHash":"$2b$12$1mE2OI9hMS/rgH9Mi0s85OM2V5gzm7aF3gJIWH1y0S1MqVBueyjsy","role":1,"id":159123164363},{"name":"Gordan Freeman","email":"gordan.freeman@halflife.com","pwdHash":"$2b$12$1mE2OI9hMS/rgH9Mi0s85OM2V5gzm7aF3gJIWH1y0S1MqVBueyjsy","role":0,"id":906524522143},{"name":"John Smith","email":"jsmith@yahoo.com","pwdHash":"$2b$12$1mE2OI9hMS/rgH9Mi0s85OM2V5gzm7aF3gJIWH1y0S1MqVBueyjsy","role":0,"id":357437875835},{"name":"James B Collins","email":"jbccollins@gmail.com","role":0,"id":694876594915}]}
+{
+  "users": [
+    {
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "email": "bruce.wayne@gmail.com",
+      "pwdHash": "$2b$12$1mE2OI9hMS/rgH9Mi0s85OM2V5gzm7aF3gJIWH1y0S1MqVBueyjsy",
+      "role": 1,
+      "id": 159123164363
+    },
+    {
+      "firstName": "Gordan",
+      "lastName": "Freeman",
+      "email": "gordan.freeman@halflife.com",
+      "pwdHash": "$2b$12$1mE2OI9hMS/rgH9Mi0s85OM2V5gzm7aF3gJIWH1y0S1MqVBueyjsy",
+      "role": 0,
+      "id": 906524522143
+    },
+    {
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "jsmith@yahoo.com",
+      "pwdHash": "$2b$12$1mE2OI9hMS/rgH9Mi0s85OM2V5gzm7aF3gJIWH1y0S1MqVBueyjsy",
+      "role": 0,
+      "id": 357437875835
+    },
+    {
+      "firstName": "Jimmy",
+      "lastName": "John",
+      "email": "jimmyjohn@gmail.com",
+      "role": 0,
+      "pwdHash": "$2b$12$Fd6xcKQitix4oGoQ2UUOOOxYvyi3sa7B//IBSkMqlkFAbeHKWDqdG",
+      "id": 131087255175
+    },
+    {
+      "firstName": "Jimmy",
+      "lastName": "John",
+      "email": "jimmyjohn2@gmail.com",
+      "role": 0,
+      "pwdHash": "$2b$12$LthsQIpX84pDNkWuvpwv..6iBYhPVm985yHNBjEIJjQzJSSYlTvxe",
+      "id": 856591014291
+    },
+    {
+      "firstName": "Cory",
+      "lastName": "Booker",
+      "email": "corybooker123@gmail.com",
+      "role": 0,
+      "pwdHash": "$2b$12$4ykioxL1aoxwUKt4OA8djeuEMlvZLn1rUd2IGPbaF91jx5mZBLZzK",
+      "id": 102826313268
+    }
+  ]
+}

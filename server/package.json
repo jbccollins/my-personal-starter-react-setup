@@ -12,11 +12,11 @@
   },
   "_moduleAliases": {
     "@daos": "dist/daos",
-    "@entities": "dist/entities",
     "@common": "dist/common",
     "@server": "dist/Server"
   },
   "dependencies": {
+    "@types/pg": "^7.14.1",
     "bcrypt": "^3.0.8",
     "command-line-args": "^5.1.1",
     "cookie-parser": "^1.4.4",
@@ -26,6 +26,7 @@
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "morgan": "^1.9.1",
+    "pg-hstore": "^2.3.3",
     "randomstring": "^1.1.5",
     "winston": "^3.2.1"
   },

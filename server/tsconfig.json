@@ -16,14 +16,17 @@
       "@daos": [
         "src/daos"
       ],
-      "@entities": [
-        "src/entities"
-      ],
       "@common": [
         "src/common"
       ],
       "@server": [
         "src/Server"
+      ],
+      "@database": [
+        "src/database"
+      ],
+      "@queries": [
+        "src/database/queries"
       ],
       "@shared/*": [
         "../client/src/shared/*"

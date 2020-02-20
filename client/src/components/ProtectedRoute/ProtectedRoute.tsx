@@ -3,6 +3,9 @@ import React from 'react';
 import { Redirect, Route } from "react-router-dom";
 import { useTypedSelector } from '@redux/store';
 import { Session } from 'types';
+import {
+  LOGIN,
+} from "@shared/constants/urls";
 
 type Props = {
   component?: any, // TODO: type this correctly
@@ -11,7 +14,7 @@ type Props = {
   render?: Function
 };
 
-const PrivateRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
+const ProtectedRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
   const session: Session | null = useTypedSelector(state => state.session);
 
   return (
@@ -23,7 +26,7 @@ const PrivateRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/login", //?ReturnTo=" + encodeURIComponent(window.location.pathname)
+              pathname: LOGIN,
               state: { from: props.location }
             }}
           />
@@ -33,4 +36,4 @@ const PrivateRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
   );
 }
 
-export default PrivateRoute;
+export default ProtectedRoute;

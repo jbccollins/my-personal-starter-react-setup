@@ -1,4 +1,4 @@
-import { IUser } from '@entities';
+import { IUser } from '@shared/types/User';
 
 
 export interface IUserDao {

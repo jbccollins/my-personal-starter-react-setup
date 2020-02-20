@@ -10,38 +10,48 @@ type TUserRoles =
 
 export interface IUser {
   id?: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  pwdHash: string;
   role: TUserRoles;
+  pwdHash: string;
 }
 
 
 export class User implements IUser {
 
   public id?: number;
-  public name: string;
+  public firstName: string;
+  public lastName: string;
   public email: string;
   public role: TUserRoles;
   public pwdHash: string;
 
+  public name() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  static fromJson(data: User) {
+    return new User(
+      data.firstName,
+      data.lastName,
+      data.email,
+      data.role,
+      data.pwdHash
+    )
+  }
 
   constructor(
-      nameOrUser?: string | IUser,
-      email?: string,
-      role?: TUserRoles,
-      pwdHash?: string,
+      firstName: string,
+      lastName: string,
+      email: string,
+      role: TUserRoles,
+      pwdHash: string,
   ) {
-      if (typeof nameOrUser === 'string' || typeof nameOrUser === 'undefined') {
-          this.name = nameOrUser || '';
-          this.email = email || '';
-          this.role = role || UserRoles.Standard;
-          this.pwdHash = pwdHash || '';
-      } else {
-          this.name = nameOrUser.name;
-          this.email = nameOrUser.email;
-          this.role = nameOrUser.role;
-          this.pwdHash = nameOrUser.pwdHash;
-      }
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.role = role || UserRoles.Standard;
+    this.pwdHash = pwdHash;
   }
 }
