@@ -1,8 +1,10 @@
-import { Sequelize } from 'sequelize-typescript';
+import { Sequelize } from 'sequelize';
 
 export const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  database: 'movies',
-  storage: ':memory:',
-  models: [__dirname + '/models']
+  dialect: 'postgres',
+  database: 'my-database',
+  logging: false//(...msg) => console.log(msg), //TODO: add better logging
+  // define: {
+  //   timestamps: false //TODO: add timestamps
+  // }
 });

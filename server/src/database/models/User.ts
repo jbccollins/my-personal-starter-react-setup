@@ -1,17 +1,41 @@
-import {Model, Column, Table, BelongsToMany, Scopes, CreatedAt, UpdatedAt} from "sequelize-typescript";
+/**********************************/
+/*           Users Table          */ 
+/**********************************/
 
-@Table
-export class User extends Model<User> {
+import { Model, DataTypes } from 'sequelize';
+import { sequelize } from '../sequelize';
+import { User as SharedUser, TUserRoles } from '@shared/types/User';
+import applyMixins from './applyMixins';
 
-  @Column
-  firstName!: string;
+class User extends Model {};
 
-  @Column
-  lastName!: string;
+interface User extends SharedUser {};
+applyMixins(User, [SharedUser]);
 
-  @Column
-  email!: string;
+User.init({
+  firstName: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  lastName: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  pwdHash: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  role: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  }
+}, {
+  sequelize,
+  tableName: 'Users'
+});
 
-  @Column
-  pwdHash!: string;
-}
+export default User;

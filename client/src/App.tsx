@@ -14,6 +14,11 @@ import {
   BASE_URL,
   USERS
 } from "@shared/constants/urls";
+// import { User } from "@shared/types/User";
+// const derp: User = new User("James", "Collins", "email", 1, "haha");
+
+// derp.
+
 
 const App = () => {
   return (

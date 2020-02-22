@@ -1,5 +1,4 @@
 import { Client } from 'pg';
-import { Sequelize } from 'sequelize-typescript';
 
 const DEV_CONNECTION_OPTIONS = {
   database: 'my-database',
@@ -11,13 +10,6 @@ const PRODUCTION_CONNECTION_OPTIONS = {
 }
 
 const OPTIONS = process.env.NODE_ENV === "production" ? PRODUCTION_CONNECTION_OPTIONS : DEV_CONNECTION_OPTIONS;
-
-// export const sequelize = new Sequelize({
-//   dialect: 'postgres',
-//   database: 'my-database',
-//   storage: ':memory:',
-//   models: [__dirname + '/models']
-// });
 
 const executeQuery = async (sql: string, params=[], options=OPTIONS) => {
   try {
