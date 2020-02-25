@@ -3,16 +3,13 @@ import express from 'express';
 import logger from 'morgan';
 import path from 'path';
 import BaseRouter from './routes';
-import { sequelize } from './database/sequelize';
-import User from './database/models/User';
-import { UserRoles } from "@shared/types/User";
+import { sequelize } from '@database/sequelize';
 
 import { Request, Response } from 'express';
 import { jwtCookieProps } from '@common';
 
 // Init express
 const app = express();
-
 
 // Add middleware/settings/routes to express.
 app.use(logger('dev'));
@@ -25,23 +22,8 @@ const initDB = async () => {
 	try {
 		await sequelize.authenticate();
 		console.log('Connection has been established successfully.');
-		await sequelize.sync({ force: true });
+		await sequelize.sync(/*{ force: true }*/);
 		console.log('Database has been synced');
-		const james: User = User.build({
-			firstName: "James",
-			lastName: "Collins",
-			email: "derp2@derp.com",
-			pwdHash: "sdkfjdlsfj02349ru5240t9u23409q3049r58oqejg-w0j98j",
-			role: UserRoles.Standard
-		});
-		console.log(
-			james.firstName,
-			james.lastName,
-			james.email,
-			james.pwdHash,
-		);
-		await james.save();
-		console.log('James was saved');
 	} catch (error) {
 		console.error('Unable to connect to the database:', error);
 	}

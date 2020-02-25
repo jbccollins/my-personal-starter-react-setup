@@ -18,13 +18,11 @@ import {
 	userAlreadyExistsError,
 	pwdSaltRounds,
 } from '@common';
-import { User, UserRoles } from '@shared/types/User';
-
+import { User as SharedUser, UserRoles } from '@shared/types/User';
+import User from '@database/models/User';
 
 const router = Router();
-const userDao = new UserDao();
 const jwtService = new JwtService();
-
 
 /******************************************************************************
  *                      Login User - "POST /api/auth/login"
@@ -40,7 +38,7 @@ router.post(LOGIN, async (req: Request, res: Response) => {
 			});
 		}
 		// Fetch user
-		const user = await userDao.getOne(email);
+		const user = await User.findOne({ where: { email } })
 		if (!user) {
 			return res.status(UNAUTHORIZED).json({
 				error: loginFailedErr,
@@ -89,7 +87,7 @@ router.post(SIGNUP, async (req: Request, res: Response) => {
 			});
 		}
 		// Fetch user
-		const existingUser = await userDao.getOne(email);
+		const existingUser = await User.findOne({ where: { email } });
 		if (existingUser) {
 			return res.status(UNAUTHORIZED).json({
 				error: userAlreadyExistsError,
@@ -97,17 +95,18 @@ router.post(SIGNUP, async (req: Request, res: Response) => {
 		}
 		// Encrypt password
 		const pwdHash = await bcrypt.hash(plaintextPassword, pwdSaltRounds);
-		const user: User = new User(
+
+		const user: User = User.build({
 			firstName,
 			lastName,
 			email,
-			UserRoles.Standard,
 			pwdHash,
-		);
+			role: UserRoles.Standard
+		});
 
 		// TODO: Remove the persistence here and have the user follow an email link to confirm signup
 		// Persist to DB
-		await userDao.add(user);
+		await user.save();
 
 		// Setup Admin Cookie
 		const jwt = await jwtService.getJwt(user);

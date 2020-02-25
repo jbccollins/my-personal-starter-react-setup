@@ -8,7 +8,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,19 +21,6 @@ import { Session } from 'types';
 import {
   SIGNUP,
 } from "@shared/constants/urls";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -59,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 export default function Login() {
 
   const [email, setEmail] = useState("bruce.wayne@gmail.com");
-  const [plaintextPassword, setPlaintextPassword] = useState("Password@1");
+  const [plaintextPassword, setPlaintextPassword] = useState("password1");
 
   //TODO: Extract this session checking so it can be used by all routes that make sense (Like /signup)
   const session: Session | null = useTypedSelector(state => state.session);
@@ -157,9 +143,6 @@ export default function Login() {
           </Grid>
         </Grid>
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
     </Container>
   );
 }

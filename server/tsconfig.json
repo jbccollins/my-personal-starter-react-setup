@@ -22,8 +22,8 @@
       "@server": [
         "src/Server"
       ],
-      "@database": [
-        "src/database"
+      "@database/*": [
+        "src/database/*"
       ],
       "@queries": [
         "src/database/queries"

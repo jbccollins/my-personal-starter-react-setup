@@ -29,7 +29,9 @@ export const authenticate = async (email: string, plaintextPassword: string) => 
   const jwt = res[JwtCookieKey];
 
   const user: User | null = getUserFromJwt(jwt);
-  // TODO: Only set this cookie when the "Remember me" checkbox is checked
+  // TODO: Only set this cookie when the "Remember me" checkbox is checked.
+  // Also, reset the timer on the cookie every time they login so that they only have to 
+  // re-login if they've been logged out for a while.
   Cookies.set(sessionJwtCookieKey, jwt);
   return user;
 }

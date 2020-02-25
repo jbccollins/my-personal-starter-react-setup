@@ -4,9 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import PersonIcon from '@material-ui/icons/Person';
 import CheckIcon from '@material-ui/icons/Check';
 import Typography from '@material-ui/core/Typography';
@@ -18,19 +16,6 @@ import {
   API_AUTH_SIGNUP,
 } from "@shared/constants/urls";
 import Http from "@util/http";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -46,6 +31,9 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  container: {
+    marginTop: theme.spacing(1),
+  }
 }));
 
 const SignUp: React.FC = () => {
@@ -101,7 +89,7 @@ const SignUp: React.FC = () => {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Grid container spacing={2}>
+        <Grid className={classes.container} container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
               autoComplete="fname"
@@ -174,9 +162,6 @@ const SignUp: React.FC = () => {
           </Grid>
         </Grid>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
     </Container>
   );
 }

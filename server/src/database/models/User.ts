@@ -4,15 +4,11 @@
 
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../sequelize';
-import { User as SharedUser, TUserRoles } from '@shared/types/User';
-import applyMixins from './applyMixins';
+import { User as SharedUser, UserRoles } from '@shared/types/User';
+import mergeClassWithModel from './mergeClassWithModel';
+import { IMergeableModel } from './IMergeableModel';
 
-class User extends Model {};
-
-interface User extends SharedUser {};
-applyMixins(User, [SharedUser]);
-
-User.init({
+const UserModelOptions = {
   firstName: {
     type: DataTypes.STRING,
     allowNull: false
@@ -30,10 +26,25 @@ User.init({
     allowNull: false
   },
   role: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.ENUM(
+      UserRoles.Admin,
+      UserRoles.Standard,
+    ),
     allowNull: false
   }
-}, {
+};
+
+const extractionFunction = (m: User) => new SharedUser("", "", "", UserRoles.Standard, "");
+
+// class User extends Model implements IMergeableModel<SharedUser> {
+//   public extract: extractionFunction;
+// };
+
+class User extends Model {};
+interface User extends SharedUser {};
+mergeClassWithModel(User, SharedUser);
+
+User.init(UserModelOptions, {
   sequelize,
   tableName: 'Users'
 });
