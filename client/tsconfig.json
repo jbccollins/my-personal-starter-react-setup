@@ -21,15 +21,16 @@
     "noEmit": true,
     "jsx": "react",
     "paths": {
-      "@components/*": ["../src/components/*"],
-      "@containers/*": ["../src/containers/*"],
+      "@api/*": ["../src/api/*"],
       "@assets/*": ["../src/assets/*"],
+      "@components/*": ["../src/components/*"],
       "@constants/*": ["../src/constants/*"],
-      "@util/*": ["../src/util/*"],
+      "@containers/*": ["../src/containers/*"],
       "@redux/*": ["../src/reduxTools/*"],
+      "@root/*": ["../src/*"],
       "@shared/*": ["../src/shared/*"],
       "@types/*": ["../src/types/*"],
-      "@root/*": ["../src/*"]
+      "@util/*": ["../src/util/*"]
     }
   },
   "include": [

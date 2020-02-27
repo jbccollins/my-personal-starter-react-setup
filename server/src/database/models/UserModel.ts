@@ -2,11 +2,11 @@
 /*           Users Table          */ 
 /**********************************/
 
-import { Model, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
 import { sequelize } from '../sequelize';
-import { User as SharedUser, UserRoles } from '@shared/types/User';
+import { User,  UserRoles } from '@shared/types/User';
 import mergeClassWithModel from './mergeClassWithModel';
-import { IMergeableModel } from './IMergeableModel';
+import { SharedModel } from './SharedModel';
 
 const UserModelOptions = {
   firstName: {
@@ -30,23 +30,18 @@ const UserModelOptions = {
       UserRoles.Admin,
       UserRoles.Standard,
     ),
+    default: UserRoles.Standard,
     allowNull: false
   }
 };
 
-const extractionFunction = (m: User) => new SharedUser("", "", "", UserRoles.Standard, "");
+class UserModel extends SharedModel {};
+interface UserModel extends User {};
+mergeClassWithModel(UserModel, User);
 
-// class User extends Model implements IMergeableModel<SharedUser> {
-//   public extract: extractionFunction;
-// };
-
-class User extends Model {};
-interface User extends SharedUser {};
-mergeClassWithModel(User, SharedUser);
-
-User.init(UserModelOptions, {
+UserModel.init(UserModelOptions, {
   sequelize,
   tableName: 'Users'
 });
 
-export default User;
+export default UserModel;

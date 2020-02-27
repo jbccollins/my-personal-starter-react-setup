@@ -15,6 +15,18 @@ export interface IUser extends IPersistentObject {
   email: string;
   role: TUserRoles;
   pwdHash: string;
+  fullName: string;
+}
+
+const userRoleToEnglish = (role: TUserRoles) => {
+  switch (role) {
+    case UserRoles.Standard:
+      return "unpriviledged";
+    case UserRoles.Admin:
+      return "admin";
+    default:
+      throw new Error("Invalid UserRole"); 
+  }
 }
 
 export class User extends PersistentObject implements IUser {
@@ -23,12 +35,13 @@ export class User extends PersistentObject implements IUser {
   public email!: string;
   public role!: TUserRoles;
   public pwdHash!: string;
+  public fullName!: string;
 
-  public name() {
-    return `${this.firstName} ${this.lastName}`;
+  public getDescription() {
+    return `${this.fullName} is an ${userRoleToEnglish(this.role)} user`;
   }
 
-  static fromJson(data: User) {
+  static fromJSON(data: User) {
     const user: User = new User(
       data.firstName,
       data.lastName,
@@ -40,6 +53,10 @@ export class User extends PersistentObject implements IUser {
       data.id,
     );
     return user;
+  }
+
+  postConstructor() {
+    this.fullName = `${this.firstName} ${this.lastName}`;
   }
 
   constructor(
@@ -56,10 +73,11 @@ export class User extends PersistentObject implements IUser {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
-    this.role = role || UserRoles.Standard;
+    this.role = role;
     this.pwdHash = pwdHash;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.id = id;
+    this.postConstructor();
   }
 }

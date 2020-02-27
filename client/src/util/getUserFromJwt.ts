@@ -12,7 +12,7 @@ export const getUserFromJwt = (jwt: string) => {
 			const base64 = base64Url.replace('-', '+').replace('_', '/')
 			// what is window.atob ?
 			// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/atob
-			user = User.fromJson(JSON.parse(window.atob(base64)));
+			user = User.fromJSON(JSON.parse(window.atob(base64)));
 		}
 	} catch (error) {
 			console.log(error)

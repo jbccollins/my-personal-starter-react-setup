@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import { Request, Response, Router } from 'express';
 import { BAD_REQUEST, OK, UNAUTHORIZED } from 'http-status-codes';
-import { UserDao } from '@daos';
 import { JwtCookieKey } from '@shared/constants/auth';
 import {
 	LOGIN,
@@ -18,8 +17,8 @@ import {
 	userAlreadyExistsError,
 	pwdSaltRounds,
 } from '@common';
-import { User as SharedUser, UserRoles } from '@shared/types/User';
-import User from '@database/models/User';
+import { UserRoles } from '@shared/types/User';
+import UserModel from '@database/models/UserModel';
 
 const router = Router();
 const jwtService = new JwtService();
@@ -38,7 +37,7 @@ router.post(LOGIN, async (req: Request, res: Response) => {
 			});
 		}
 		// Fetch user
-		const user = await User.findOne({ where: { email } })
+		const user = await UserModel.findOne({ where: { email } })
 		if (!user) {
 			return res.status(UNAUTHORIZED).json({
 				error: loginFailedErr,
@@ -87,7 +86,7 @@ router.post(SIGNUP, async (req: Request, res: Response) => {
 			});
 		}
 		// Fetch user
-		const existingUser = await User.findOne({ where: { email } });
+		const existingUser = await UserModel.findOne({ where: { email } });
 		if (existingUser) {
 			return res.status(UNAUTHORIZED).json({
 				error: userAlreadyExistsError,
@@ -96,7 +95,7 @@ router.post(SIGNUP, async (req: Request, res: Response) => {
 		// Encrypt password
 		const pwdHash = await bcrypt.hash(plaintextPassword, pwdSaltRounds);
 
-		const user: User = User.build({
+		const user: UserModel = UserModel.build({
 			firstName,
 			lastName,
 			email,

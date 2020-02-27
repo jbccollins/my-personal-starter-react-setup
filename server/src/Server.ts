@@ -7,6 +7,8 @@ import { sequelize } from '@database/sequelize';
 
 import { Request, Response } from 'express';
 import { jwtCookieProps } from '@common';
+import UserModel from '@database/models/UserModel';
+import { UserRoles } from '@shared/types/User';
 
 // Init express
 const app = express();
@@ -18,11 +20,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use('/api', BaseRouter);
 
+
+// const test = async () => {
+//   const user: UserModel = await UserModel.create({
+//     firstName: "James",
+//     lastName: "Collins",
+//     email: "derp2@gmail.com",
+//     pwdHash: "asdfffjjfjf",
+//     role: UserRoles.Standard,
+//   })
+
+//   console.log(">>>>>>>>>>>>>>>>>")
+//   console.log(user.id, user.firstName, user.lastName, user.email, user.pwdHash, user.role, user.createdAt, user.updatedAt, user.fullName);
+// }
+
 const initDB = async () => {
 	try {
 		await sequelize.authenticate();
 		console.log('Connection has been established successfully.');
-		await sequelize.sync(/*{ force: true }*/);
+		await sequelize.sync({ /* force: true */ });
+		//await test();
 		console.log('Database has been synced');
 	} catch (error) {
 		console.error('Unable to connect to the database:', error);

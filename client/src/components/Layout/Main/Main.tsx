@@ -123,7 +123,7 @@ const Main: React.FC<Props> = ({ children }) => {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            {`${session ? session.user.name() : "" } Dashboard`}
+            {`${session ? session.user.fullName : "" } Dashboard`}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">

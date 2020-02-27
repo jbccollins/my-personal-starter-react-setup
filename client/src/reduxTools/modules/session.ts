@@ -38,7 +38,7 @@ export const authenticate = async (email: string, plaintextPassword: string) => 
 
 export const logout = async (dispatch: Dispatch<any>) => {
   Cookies.remove(sessionJwtCookieKey)
-  await Http.Get(API_AUTH_LOGOUT);
+  await Http.Get(API_AUTH_LOGOUT, false);
   window.location.href = '/';
   dispatch(doLogout());
 }

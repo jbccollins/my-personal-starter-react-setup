@@ -1,7 +1,7 @@
 import randomString from 'randomstring';
 import jsonwebtoken, { VerifyErrors } from 'jsonwebtoken';
 import { IUser } from '@shared/types/User';
-import User from '@database/models/User';
+import UserModel from '@database/models/UserModel';
 
 export class JwtService {
 
@@ -21,7 +21,7 @@ export class JwtService {
      *
      * @param data
      */
-    public getJwt(data: User): Promise<string> {
+    public getJwt(data: UserModel): Promise<string> {
         return new Promise((resolve, reject) => {
             jsonwebtoken.sign(Object.assign({}, data.toJSON()), this.secret, this.options, (err, token) => {
                 err ? reject(err) : resolve(token);

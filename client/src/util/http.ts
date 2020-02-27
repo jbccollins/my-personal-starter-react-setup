@@ -24,8 +24,10 @@ const httpReturn = async (res: Response, parseJson: boolean) => {
 }
 
 export default {
-  Get: function (path: string) {
-    return fetch(path, getOptions('GET'))
+  Get: async (path: string, parseJson: boolean = true) => {
+    const res = await fetch(path, getOptions('GET'));
+    const toReturn = await httpReturn(res, parseJson);
+    return toReturn;
   },
   Post: async (path: string, data: object, parseJson: boolean = true) => {
       const res = await fetch(path, getOptions('POST', data));

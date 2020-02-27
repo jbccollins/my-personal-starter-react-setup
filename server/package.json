@@ -6,14 +6,14 @@
   "scripts": {
     "build": "node ./util/build.js",
     "lint": "tslint --project \"tsconfig.json\"",
-    "start": "node -r module-alias/register ./dist",
+    "start": "node -r module-alias/register ./build",
     "start:dev": "nodemon --watch src --watch ../client/src/shared --config nodemon.json",
     "test": "nodemon --config nodemon.test.json"
   },
   "_moduleAliases": {
-    "@daos": "dist/daos",
-    "@common": "dist/common",
-    "@server": "dist/Server"
+    "@daos": "./build/server/src/daos",
+    "@common": "./build/server/src/common",
+    "@server": "./build/server/src/Server"
   },
   "dependencies": {
     "@types/pg": "^7.14.1",

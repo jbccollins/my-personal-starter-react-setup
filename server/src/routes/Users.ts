@@ -4,6 +4,7 @@ import { ParamsDictionary } from 'express-serve-static-core';
 import { UserDao } from '@daos';
 import { paramMissingError, logger, adminMW } from '@common';
 import { UserRoles } from '@shared/types/User';
+import UserModel from "@database/models/UserModel";
 import { user } from '@queries';
 
 // Init common
@@ -29,7 +30,9 @@ const userDao = new UserDao();
 
 router.get('/all', adminMW, async (req: Request, res: Response) => {
 	try {
-		const users = await user.all();
+		//const users = await user.all();
+		const users = await UserModel.findAll();
+		users.map(x => x.toJSON());
 		return res.status(OK).json(users);
 	} catch (err) {
 		logger.error(err.message, err);
